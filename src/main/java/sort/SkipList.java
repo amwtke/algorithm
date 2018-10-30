@@ -1,5 +1,7 @@
 package sort;
 
+import lombok.Data;
+
 import java.util.Random;
 
 /**
@@ -101,6 +103,7 @@ public class SkipList {
         System.out.println();
     }
 
+    @Data
     public class Node {
         private int data = -1;
         private Node forwords[] = new Node[MAX_LEVEL];

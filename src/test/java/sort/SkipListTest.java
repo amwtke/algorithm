@@ -2,6 +2,9 @@ package sort;
 
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class SkipListTest {
     @Test
     public void test() {
@@ -13,5 +16,6 @@ public class SkipListTest {
         skipList.insert(20);
         skipList.insert(1);
         skipList.find(15);
+        assertThat(skipList.find(10).getData(), is(10));
     }
 }
