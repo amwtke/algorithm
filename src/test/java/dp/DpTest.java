@@ -17,7 +17,7 @@ public class DpTest {
         long begin = System.currentTimeMillis();
         Integer result = shortestPath.DPWay(yhTriangle);
         long end = System.currentTimeMillis();
-        System.out.println("total time:" + (end - begin));
+        System.out.println("total time:" + (end - begin) + " ms.");
 //        assertThat(result, is(20));
         System.out.println("DP result:" + result);
         begin = System.currentTimeMillis();
@@ -25,7 +25,7 @@ public class DpTest {
         end = System.currentTimeMillis();
         System.out.println("tb result:" + result2);
         assertThat(result2.equals(result), is(true));
-        System.out.println("total time:" + (end - begin));
+        System.out.println("total time:" + (end - begin) + " ms.");
     }
 
     @Test
