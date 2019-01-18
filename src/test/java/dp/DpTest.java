@@ -12,7 +12,7 @@ public class DpTest {
     @Test
     public void testDp() throws Exception {
         ShortestPath shortestPath = new ShortestPath();
-        YHTriangle yhTriangle = ConvertArryToYHTriangle.makeLargeYHTriangle(50);
+        YHTriangle yhTriangle = ConvertArryToYHTriangle.makeLargeYHTriangle(35);
 //        yhTriangle.addAll(5, 7, 8, 2, 3, 4, 4, 9, 6, 1, 2, 7, 9, 4, 5);
         long begin = System.currentTimeMillis();
         Integer result = shortestPath.DPWay(yhTriangle);
@@ -24,8 +24,8 @@ public class DpTest {
         Integer result2 = shortestPath.traceBackWay(yhTriangle);
         end = System.currentTimeMillis();
         System.out.println("tb result:" + result2);
-        assertThat(result2.equals(result), is(true));
         System.out.println("total time:" + (end - begin) + " ms.");
+        assertThat(result2.equals(result), is(true));
     }
 
     @Test
