@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.LinkedList;
 import java.util.List;
 
-import static dp.continuityproblems.twoarraymaxsamesubarrays.GenData.convertIntegers;
 import static dp.continuityproblems.twoarraymaxsamesubarrays.GenData.genRandomArrays;
 
 @Slf4j
