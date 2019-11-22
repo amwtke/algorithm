@@ -18,8 +18,8 @@ public class CommonWay {
 //        int[] a = {1, 0, 1, 0, 1, 1, 1, 1, 0};
 //        int[] b = {1, 1, 0, 1, 1, 0, 1, 0, 0};
         long begin, end;
-        int[] a = genRandomArrays(100000, 2);
-        int[] b = genRandomArrays(100000, 2);
+        int[] a = genRandomArrays(10000, 10);
+        int[] b = genRandomArrays(10000, 10);
 
 
         begin = System.currentTimeMillis();
