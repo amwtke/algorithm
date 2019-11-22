@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.LinkedList;
 import java.util.List;
 
+import static dp.continuityproblems.twoarraymaxsamesubarrays.GenData.convertIntegers;
 import static dp.continuityproblems.twoarraymaxsamesubarrays.GenData.genRandomArrays;
 
 @Slf4j
@@ -17,36 +18,53 @@ public class CommonWay {
 //        int[] a = {1, 0, 1, 0, 1, 1, 1, 1, 0};
 //        int[] b = {1, 1, 0, 1, 1, 0, 1, 0, 0};
         long begin, end;
-        int[] a = genRandomArrays(1000, 10);
-        int[] b = genRandomArrays(1000, 10);
-
+        int[] a = genRandomArrays(100000, 2);
+        int[] b = genRandomArrays(100000, 2);
 
 
         begin = System.currentTimeMillis();
         int length = MatrixWay.findLength(a, b);
         end = System.currentTimeMillis();
-        log.info("matrix:{}, time:{}", length, end - begin);
+        log.info("matrix way------->{}, time:{}", length, end - begin);
 
         begin = System.currentTimeMillis();
         Resutl length2 = findLength(a, b);
         end = System.currentTimeMillis();
-        log.error("common result:{},time:{}", length2, end - begin);
+        log.error("common way------->{},time:{}", length2.getMax(), end - begin);
 //        log.info("a:{}", a);
 //        log.info("b:{}", b);
     }
 
     public static Resutl findLength(int[] A, int[] B) {
-        int delta = -1;//-Math.max(A.length, B.length);
+        long begin, end;
 
+        int delta =
+//                -1;
+        -Math.max(A.length, B.length);
         int[][] table = new int[A.length][B.length];
+        intiTable(table);
+        begin = System.currentTimeMillis();
         for (int i = 0; i < A.length; i++) {
             for (int j = 0; j < B.length; j++) {
                 dp(A, B, i, j, table, delta);
             }
         }
+        end = System.currentTimeMillis();
+        log.info("computing:{}", end - begin);
+
+        begin = System.currentTimeMillis();
         Resutl resutl = getMax(A, B, table);
-//        log.info("sub arrays:{}", resutl.getMaxSubArrays());
+        end = System.currentTimeMillis();
+        log.info("result:{}", end - begin);
         return resutl;
+    }
+
+    private static void intiTable(int[][] table) {
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].length; j++) {
+                table[i][j] = -1;
+            }
+        }
     }
 
     private static Resutl getMax(int[] a, int[] b, int[][] table) {
@@ -77,6 +95,9 @@ public class CommonWay {
     }
 
     private static int dp(int[] a, int[] b, int i, int j, int[][] table, int delta) {
+        if (table[i][j] != -1) {
+            return table[i][j];
+        }
         int Aij;
         if (a[i] == b[j]) {
             Aij = 1;
