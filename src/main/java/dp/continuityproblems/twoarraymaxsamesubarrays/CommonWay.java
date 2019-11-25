@@ -22,7 +22,7 @@ public class CommonWay {
 
 
         begin = System.currentTimeMillis();
-        int length = MatrixWay.findLength(a, b);
+        int length = FastDpWay.findLength(a, b);
         end = System.currentTimeMillis();
         log.info("matrix way------->{}, time:{}", length, end - begin);
 

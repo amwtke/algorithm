@@ -1,6 +1,6 @@
 package dp.continuityproblems.twoarraymaxsamesubarrays;
 
-public class MatrixWay {
+public class FastDpWay {
     public static int findLength(int[] A, int[] B) {
         int[] state = new int[B.length];
         int maxValue = 0;
