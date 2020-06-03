@@ -8,6 +8,8 @@ public class VolatileTest extends Thread {
         System.out.println(Thread.currentThread().getName() + " 1111begin.");
         while (!flag) {
             i++;
+//            Object test = new Object();
+            System.out.println();
 //            try {
 //                Thread.sleep(1000);
 //                System.out.println(Thread.currentThread().getName());
