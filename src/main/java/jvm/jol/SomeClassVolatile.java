@@ -12,7 +12,8 @@ public class SomeClassVolatile {
             System.out.println(Thread.currentThread().getName() + " A is " + someClassVolatile.valueA);
             System.out.println(Thread.currentThread().getName() + " B is " + someClassVolatile.valueB);
             while (someClassVolatile.valueA == 1L) {
-//                System.out.println();
+                //只要有系统调用就会自动刷新栈内存，同步主存。
+                System.out.println();
 
 //2                try {
 //                    Thread.sleep(10);
