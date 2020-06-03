@@ -12,14 +12,16 @@ public class SomeClassVolatile {
             System.out.println(Thread.currentThread().getName() + " A is " + someClassVolatile.valueA);
             System.out.println(Thread.currentThread().getName() + " B is " + someClassVolatile.valueB);
             while (someClassVolatile.valueA == 1L) {
-//1                System.out.println();
+//                System.out.println();
 
 //2                try {
 //                    Thread.sleep(10);
 //                } catch (InterruptedException e) {
 //                    e.printStackTrace();
 //                }
-                Thread.currentThread().getId();
+
+//3 not work      Thread.currentThread().getId();
+
 //                System.out.println(Thread.currentThread().getId() + "----i am in.");
 //                System.out.println("----i am in.");
                 someClassVolatile.valueB++;
