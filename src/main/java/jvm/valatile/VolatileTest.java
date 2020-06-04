@@ -8,8 +8,8 @@ public class VolatileTest extends Thread {
             Integer flag = 0;
     //    Boolean flag = false;
 
-    //        Integer i = 0;
-    long i = 0L;
+            Integer i = 0;
+//    long i = 0L;
 
     public void run() {
         System.out.println("Begin - " + Thread.currentThread().getName() + " flag hashcode:" + flag.hashCode());
