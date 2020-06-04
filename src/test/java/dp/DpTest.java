@@ -12,7 +12,7 @@ public class DpTest {
     @Test
     public void testDp() throws Exception {
         ShortestPath shortestPath = new ShortestPath();
-        YHTriangle yhTriangle = ConvertArryToYHTriangle.makeLargeYHTriangle(35);
+        YHTriangle yhTriangle = ConvertArryToYHTriangle.makeLargeYHTriangle(15);
 //        yhTriangle.addAll(5, 7, 8, 2, 3, 4, 4, 9, 6, 1, 2, 7, 9, 4, 5);
         long begin = System.currentTimeMillis();
         Integer result = shortestPath.DPWay(yhTriangle);

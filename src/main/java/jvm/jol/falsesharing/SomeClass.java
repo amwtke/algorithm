@@ -1,4 +1,4 @@
-package jvm.jol;
+package jvm.jol.falsesharing;
 
 import org.openjdk.jol.info.ClassLayout;
 import org.openjdk.jol.vm.VM;
