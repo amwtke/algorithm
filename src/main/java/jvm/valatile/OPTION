@@ -1,0 +1,6 @@
+-XX:-RestrictContended
+-server
+-XX:+UnlockDiagnosticVMOptions
+-XX:+PrintAssembly
+-Xcomp
+-XX:CompileCommand=compileonly,*VolatileTest.setFlag
