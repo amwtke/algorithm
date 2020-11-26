@@ -1,5 +1,6 @@
 package jvm.multithread;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -13,8 +14,18 @@ public class ExchangeCharSeq_ReentryLock {
     static Condition condition2 = reentrantLock.newCondition();
     static Condition condition3 = reentrantLock.newCondition();
 
+    static CountDownLatch countDownLatch = new CountDownLatch(2);
+
     static Thread t1 = new Thread(() -> {
         reentrantLock.lock();
+        if (countDownLatch.getCount() != 0) {
+            try {
+                condition2.signal();
+                condition1.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         try {
             for (char c : aI) {
                 System.out.println(c);
@@ -37,6 +48,9 @@ public class ExchangeCharSeq_ReentryLock {
         try {
             for (char c : aC) {
                 System.out.println(c);
+                if (countDownLatch.getCount() == 2) {
+                    countDownLatch.countDown();
+                }
                 condition3.signal();
                 condition2.await();
             }
@@ -52,6 +66,14 @@ public class ExchangeCharSeq_ReentryLock {
     static Thread t3 = new Thread(() -> {
         reentrantLock.lock();
         try {
+            if (countDownLatch.getCount() == 2) {
+                condition2.signal();
+                condition3.await();
+            }
+            if (countDownLatch.getCount() == 1) {
+                countDownLatch.countDown();
+            }
+
             for (char c : aD) {
                 System.out.println(c);
                 condition1.signal();
