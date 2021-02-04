@@ -22,12 +22,12 @@ Copyright 2009–2021 by Codility Limited. All Rights Reserved. Unauthorized cop
  */
 
 public class SmallestInt {
-    public int solution(int[] A) {
+    public static int solution(int[] A) {
         // write your code in Java SE 8
         return computeSmallestInt(A);
     }
 
-    int computeSmallestInt(int[] A) {
+   static int computeSmallestInt(int[] A) {
         if (A == null) {
             return 0;
         }
@@ -88,7 +88,7 @@ public class SmallestInt {
         return smallestInt;
     }
 
-    private byte[] formBitMap(int[] A, int maxBitmapLength) {
+    private static byte[] formBitMap(int[] A, int maxBitmapLength) {
         byte[] bitmap = new byte[maxBitmapLength];
         for (int a : A) {
             if (a < 0) {
@@ -126,7 +126,7 @@ public class SmallestInt {
         return bitmap;
     }
 
-    private int getIndex(int a) {
+    private static int getIndex(int a) {
         int index = a / 7;
         if (a % 7 == 0) {
             index = index - 1;
@@ -134,13 +134,12 @@ public class SmallestInt {
         return index;
     }
 
-    private int getMaxBitmapLength(int max) {
+    private static int getMaxBitmapLength(int max) {
         return (max % 7 == 0) ? max / 7 : max / 7 + 1;
     }
 
-    @Test
-    public void test() {
-        int[] A = {1, 2, 3, 4,  6, 7, 8, 9, 10, 11,1000};
+    public static void main(String[] args) {
+        int[] A = { 2, 3, 4,  6, 7, 8, 9, 10, 11,1000};
         System.out.println(solution(A));
     }
 }

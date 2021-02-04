@@ -140,7 +140,7 @@ public class SmallestInt {
 
     @Test
     public void test() {
-        int[] A = {1, 2, 3, 4,  6, 7, 8, 9, 10, 11,1000};
+        int[] A = {2, 3, 4,  6, 7, 8, 9, 10, 11,1000};
         System.out.println(solution(A));
     }
 }
