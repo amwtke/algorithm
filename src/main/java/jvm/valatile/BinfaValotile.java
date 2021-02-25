@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class BinfaValotile {
-//    private static volatile int flag = 0;
-    private static int flag = 0;
+    private static volatile int flag = 0;
+//    private static int flag = 0;
     public static ReentrantLock reentrantLock = new ReentrantLock();
 
     private static void setFlag(int flag) {

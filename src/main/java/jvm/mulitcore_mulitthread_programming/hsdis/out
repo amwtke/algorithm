@@ -1,0 +1,167 @@
+CompilerOracle: compileonly *VolatileNotOk.setFlag
+Loaded disassembler from /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.275.b01-0.el7_9.x86_64/jre/lib/amd64/server/hsdis-amd64.so
+Decoding compiled method 0x00007f5529102350:
+Code:
+[Disassembling for mach='i386:x86-64']
+[Entry Point]
+[Verified Entry Point]
+[Constants]
+  # {method} {0x00007f5528b06610} 'setFlag' '(LVolatileNotOk;)V' in 'VolatileNotOk'
+  # parm0:    rsi:rsi   = 'VolatileNotOk'
+  #           [sp+0x40]  (sp of caller)
+  0x00007f55291024a0: mov    %eax,-0x14000(%rsp)
+  0x00007f55291024a7: push   %rbp
+  0x00007f55291024a8: sub    $0x30,%rsp
+  0x00007f55291024ac: movabs $0x7f5528b06a48,%rdi  ;   {metadata(method data for {method} {0x00007f5528b06610} 'setFlag' '(LVolatileNotOk;)V' in 'VolatileNotOk')}
+  0x00007f55291024b6: mov    0xdc(%rdi),%ebx
+  0x00007f55291024bc: add    $0x8,%ebx
+  0x00007f55291024bf: mov    %ebx,0xdc(%rdi)
+  0x00007f55291024c5: movabs $0x7f5528b06610,%rdi  ;   {metadata({method} {0x00007f5528b06610} 'setFlag' '(LVolatileNotOk;)V' in 'VolatileNotOk')}
+  0x00007f55291024cf: and    $0x0,%ebx
+  0x00007f55291024d2: cmp    $0x0,%ebx
+  0x00007f55291024d5: je     0x00007f55291024ee  ;*aload_0
+                                                ; - VolatileNotOk::setFlag@0 (line 23)
+
+  0x00007f55291024db: movb   $0x0,0x180(%rsi)   ;*putfield flag
+                                                ; - VolatileNotOk::setFlag@2 (line 23)
+                                                ; implicit exception: dispatches to 0x00007f5529102502
+  0x00007f55291024e2: add    $0x30,%rsp
+  0x00007f55291024e6: pop    %rbp
+  0x00007f55291024e7: test   %eax,0x1798cc13(%rip)        # 0x00007f5540a8f100
+                                                ;   {poll_return}
+  0x00007f55291024ed: retq   
+  0x00007f55291024ee: mov    %rdi,0x8(%rsp)
+  0x00007f55291024f3: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f55291024fb: callq  0x00007f55290ffee0  ; OopMap{rsi=Oop off=96}
+                                                ;*synchronization entry
+                                                ; - VolatileNotOk::setFlag@-1 (line 23)
+                                                ;   {runtime_call}
+  0x00007f5529102500: jmp    0x00007f55291024db
+  0x00007f5529102502: callq  0x00007f552906f940  ; OopMap{off=103}
+                                                ;*putfield flag
+                                                ; - VolatileNotOk::setFlag@2 (line 23)
+                                                ;   {runtime_call}
+  0x00007f5529102507: nop
+  0x00007f5529102508: nop
+  0x00007f5529102509: mov    0x388(%r15),%rax
+  0x00007f5529102510: movabs $0x0,%r10
+  0x00007f552910251a: mov    %r10,0x388(%r15)
+  0x00007f5529102521: movabs $0x0,%r10
+  0x00007f552910252b: mov    %r10,0x390(%r15)
+  0x00007f5529102532: add    $0x30,%rsp
+  0x00007f5529102536: pop    %rbp
+  0x00007f5529102537: jmpq   0x00007f552906ce20  ;   {runtime_call}
+  0x00007f552910253c: hlt    
+  0x00007f552910253d: hlt    
+  0x00007f552910253e: hlt    
+  0x00007f552910253f: hlt    
+[Exception Handler]
+[Stub Code]
+  0x00007f5529102540: callq  0x00007f552906d9e0  ;   {no_reloc}
+  0x00007f5529102545: mov    %rsp,-0x28(%rsp)
+  0x00007f552910254a: sub    $0x80,%rsp
+  0x00007f5529102551: mov    %rax,0x78(%rsp)
+  0x00007f5529102556: mov    %rcx,0x70(%rsp)
+  0x00007f552910255b: mov    %rdx,0x68(%rsp)
+  0x00007f5529102560: mov    %rbx,0x60(%rsp)
+  0x00007f5529102565: mov    %rbp,0x50(%rsp)
+  0x00007f552910256a: mov    %rsi,0x48(%rsp)
+  0x00007f552910256f: mov    %rdi,0x40(%rsp)
+  0x00007f5529102574: mov    %r8,0x38(%rsp)
+  0x00007f5529102579: mov    %r9,0x30(%rsp)
+  0x00007f552910257e: mov    %r10,0x28(%rsp)
+  0x00007f5529102583: mov    %r11,0x20(%rsp)
+  0x00007f5529102588: mov    %r12,0x18(%rsp)
+  0x00007f552910258d: mov    %r13,0x10(%rsp)
+  0x00007f5529102592: mov    %r14,0x8(%rsp)
+  0x00007f5529102597: mov    %r15,(%rsp)
+  0x00007f552910259b: movabs $0x7f553f74f236,%rdi  ;   {external_word}
+  0x00007f55291025a5: movabs $0x7f5529102545,%rsi  ;   {internal_word}
+  0x00007f55291025af: mov    %rsp,%rdx
+  0x00007f55291025b2: and    $0xfffffffffffffff0,%rsp
+  0x00007f55291025b6: callq  0x00007f553f40e4e0  ;   {runtime_call}
+  0x00007f55291025bb: hlt    
+[Deopt Handler Code]
+  0x00007f55291025bc: movabs $0x7f55291025bc,%r10  ;   {section_word}
+  0x00007f55291025c6: push   %r10
+  0x00007f55291025c8: jmpq   0x00007f5529047240  ;   {runtime_call}
+  0x00007f55291025cd: hlt    
+  0x00007f55291025ce: hlt    
+  0x00007f55291025cf: hlt    
+Decoding compiled method 0x00007f5529102050:
+Code:
+[Entry Point]
+[Verified Entry Point]
+[Constants]
+  # {method} {0x00007f5528b06610} 'setFlag' '(LVolatileNotOk;)V' in 'VolatileNotOk'
+  # parm0:    rsi:rsi   = 'VolatileNotOk'
+  #           [sp+0x40]  (sp of caller)
+  0x00007f55291021a0: mov    %eax,-0x14000(%rsp)
+  0x00007f55291021a7: push   %rbp
+  0x00007f55291021a8: sub    $0x30,%rsp         ;*aload_0
+                                                ; - VolatileNotOk::setFlag@0 (line 23)
+
+  0x00007f55291021ac: movb   $0x0,0x180(%rsi)   ;*putfield flag
+                                                ; - VolatileNotOk::setFlag@2 (line 23)
+                                                ; implicit exception: dispatches to 0x00007f55291021bf
+  0x00007f55291021b3: add    $0x30,%rsp
+  0x00007f55291021b7: pop    %rbp
+  0x00007f55291021b8: test   %eax,0x1798cf42(%rip)        # 0x00007f5540a8f100
+                                                ;   {poll_return}
+  0x00007f55291021be: retq   
+  0x00007f55291021bf: callq  0x00007f552906f940  ; OopMap{off=36}
+                                                ;*putfield flag
+                                                ; - VolatileNotOk::setFlag@2 (line 23)
+                                                ;   {runtime_call}
+  0x00007f55291021c4: nop
+  0x00007f55291021c5: nop
+  0x00007f55291021c6: mov    0x388(%r15),%rax
+  0x00007f55291021cd: movabs $0x0,%r10
+  0x00007f55291021d7: mov    %r10,0x388(%r15)
+  0x00007f55291021de: movabs $0x0,%r10
+  0x00007f55291021e8: mov    %r10,0x390(%r15)
+  0x00007f55291021ef: add    $0x30,%rsp
+  0x00007f55291021f3: pop    %rbp
+  0x00007f55291021f4: jmpq   0x00007f552906ce20  ;   {runtime_call}
+  0x00007f55291021f9: hlt    
+  0x00007f55291021fa: hlt    
+  0x00007f55291021fb: hlt    
+  0x00007f55291021fc: hlt    
+  0x00007f55291021fd: hlt    
+  0x00007f55291021fe: hlt    
+  0x00007f55291021ff: hlt    
+[Exception Handler]
+[Stub Code]
+  0x00007f5529102200: callq  0x00007f552906d9e0  ;   {no_reloc}
+  0x00007f5529102205: mov    %rsp,-0x28(%rsp)
+  0x00007f552910220a: sub    $0x80,%rsp
+  0x00007f5529102211: mov    %rax,0x78(%rsp)
+  0x00007f5529102216: mov    %rcx,0x70(%rsp)
+  0x00007f552910221b: mov    %rdx,0x68(%rsp)
+  0x00007f5529102220: mov    %rbx,0x60(%rsp)
+  0x00007f5529102225: mov    %rbp,0x50(%rsp)
+  0x00007f552910222a: mov    %rsi,0x48(%rsp)
+  0x00007f552910222f: mov    %rdi,0x40(%rsp)
+  0x00007f5529102234: mov    %r8,0x38(%rsp)
+  0x00007f5529102239: mov    %r9,0x30(%rsp)
+  0x00007f552910223e: mov    %r10,0x28(%rsp)
+  0x00007f5529102243: mov    %r11,0x20(%rsp)
+  0x00007f5529102248: mov    %r12,0x18(%rsp)
+  0x00007f552910224d: mov    %r13,0x10(%rsp)
+  0x00007f5529102252: mov    %r14,0x8(%rsp)
+  0x00007f5529102257: mov    %r15,(%rsp)
+  0x00007f552910225b: movabs $0x7f553f74f236,%rdi  ;   {external_word}
+  0x00007f5529102265: movabs $0x7f5529102205,%rsi  ;   {internal_word}
+  0x00007f552910226f: mov    %rsp,%rdx
+  0x00007f5529102272: and    $0xfffffffffffffff0,%rsp
+  0x00007f5529102276: callq  0x00007f553f40e4e0  ;   {runtime_call}
+  0x00007f552910227b: hlt    
+[Deopt Handler Code]
+  0x00007f552910227c: movabs $0x7f552910227c,%r10  ;   {section_word}
+  0x00007f5529102286: push   %r10
+  0x00007f5529102288: jmpq   0x00007f5529047240  ;   {runtime_call}
+  0x00007f552910228d: hlt    
+  0x00007f552910228e: hlt    
+  0x00007f552910228f: hlt    
+vt value: 97644544
+stop and final flag is:false
