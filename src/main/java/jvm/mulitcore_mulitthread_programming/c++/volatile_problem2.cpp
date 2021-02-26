@@ -4,8 +4,8 @@
 std::mutex g_display_mutex;
 
 const int TC = 10;
-volatile bool flag=true;
-volatile long count;
+bool flag=true;
+long count;
 
 void inc_count()
 {
