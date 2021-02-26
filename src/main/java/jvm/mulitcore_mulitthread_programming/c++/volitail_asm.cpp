@@ -24,6 +24,24 @@ void sub_flag()
     asm("retq");
 }
 
+/* mac
+void inc_count()
+{
+    asm("movl	_inc(%rip), %eax");
+    asm("lock addl	%eax,_count(%rip)");
+    asm("popq	%rbp");
+    asm("retq");
+}
+
+void sub_flag()
+{
+    asm("movl	_inc(%rip), %eax");
+    asm("lock sub	%eax,_flag(%rip)");
+    asm("popq	%rbp");
+    asm("retq");
+}
+*/
+
 void testRun()
 {
     while(flag){
