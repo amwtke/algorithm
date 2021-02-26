@@ -1,11 +1,12 @@
-package jvm.mulitcore_mulitthread_programming.hsdis;
+package jvm.mulitcore_mulitthread_programming.java_volitale;
 
-public class VolatileOk extends Thread {
-    volatile boolean flag = true;
+public class VolatileOkSynchronize extends Thread {
+    boolean flag = true;
     long i = 0L;
+    Object lock = new Object();
 
     public static void main(String[] args) throws Exception {
-        VolatileOk vt = new VolatileOk();
+        VolatileOkSynchronize vt = new VolatileOkSynchronize();
         vt.start();
         Thread.sleep(1000);//挂起下主线程，确保子线程完成初始化并启动成功。
         setFlag(vt);//设置flag，尝试停止线程
@@ -17,11 +18,13 @@ public class VolatileOk extends Thread {
     @Override
     public void run() {
         while (flag) {
-            i++;
+            synchronized (VolatileOkSynchronize.class) {
+                i++;
+            }
         }
     }
 
-    private static void setFlag(VolatileOk vt) {
+    private static void setFlag(VolatileOkSynchronize vt) {
         vt.flag = false;
     }
 }
