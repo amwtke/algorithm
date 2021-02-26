@@ -25,6 +25,6 @@ public class VolatileCount {
         while (FLAG) {
             COUNTER = COUNTER + 1;
         }
-        System.out.println("Thread:" + Thread.currentThread().getName() + " Counter:" + COUNTER);
+        System.out.println("Thread:" + Thread.currentThread().getName() + " Counter:" + COUNTER + " Time:" + System.currentTimeMillis());
     }
 }
