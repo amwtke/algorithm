@@ -9,7 +9,7 @@ public class VolatileCounter {
      * 只有对象才会把对象的primary拷贝到线程中，
      * 如果本来就是primary type，就引用。
      */
-    static volatile long COUNTER = 0L;
+    static volatile Long COUNTER = 0L;
     static int THREADS = 100;
 
     public static void main(String[] args) throws Exception {

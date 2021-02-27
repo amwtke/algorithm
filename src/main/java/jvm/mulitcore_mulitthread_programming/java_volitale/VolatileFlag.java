@@ -2,7 +2,7 @@ package jvm.mulitcore_mulitthread_programming.java_volitale;
 
 import java.util.concurrent.TimeUnit;
 
-public class VolatileCount {
+public class VolatileFlag {
     static volatile boolean FLAG = true;
     static volatile long COUNTER = 0L;
     static int THREADS = 100;
@@ -10,7 +10,7 @@ public class VolatileCount {
     public static void main(String[] args) throws Exception {
         Thread[] threads = new Thread[THREADS];
         for (int i = 0; i < THREADS; i++) {
-            threads[i] = new Thread(VolatileCount::loopInc, "Thread-" + i);
+            threads[i] = new Thread(VolatileFlag::loopInc, "Thread-" + i);
             threads[i].start();
         }
         TimeUnit.SECONDS.sleep(1L);
