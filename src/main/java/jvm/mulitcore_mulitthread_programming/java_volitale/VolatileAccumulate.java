@@ -22,10 +22,10 @@ public class VolatileAccumulate {
 
     private static void loopInc() {
         for (int i = 0; i < 10000; i++) {
-            synchronized (VolatileAccumulate.class) {
-                COUNTER = COUNTER + 1;
-            }
+//            synchronized (VolatileAccumulate.class) {
+                COUNTER ++;//++操作不是原子的，是根本原因
+//            }
         }
-        System.out.println("Thread:" + Thread.currentThread().getName() + " Counter:" + COUNTER + " Time:" + System.currentTimeMillis());
+//        System.out.println("Thread:" + Thread.currentThread().getName() + " Counter:" + COUNTER + " Time:" + System.currentTimeMillis());
     }
 }
