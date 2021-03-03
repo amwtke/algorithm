@@ -1,10 +1,9 @@
 package jvm.mulitcore_mulitthread_programming.java_volitale;
 
-import java.util.concurrent.TimeUnit;
-
 public class VolatileAccumulate {
-    static volatile long COUNTER = 0L;
+    static long COUNTER = 0L;
     static int THREADS = 10;
+    static boolean FLAG = true;
 
     public static void main(String[] args) throws Exception {
         Thread[] threads = new Thread[THREADS];
@@ -12,8 +11,7 @@ public class VolatileAccumulate {
             threads[i] = new Thread(VolatileAccumulate::loopInc, "Thread-" + i);
             threads[i].start();
         }
-        TimeUnit.SECONDS.sleep(1L);
-
+        FLAG = false;
         for (int i = 0; i < THREADS; i++) {
             threads[i].join();
         }
@@ -22,10 +20,11 @@ public class VolatileAccumulate {
 
     private static void loopInc() {
         for (int i = 0; i < 10000; i++) {
-//            synchronized (VolatileAccumulate.class) {
-                COUNTER ++;//++操作不是原子的，是根本原因
-//            }
+            if (FLAG) {
+                COUNTER++;//++操作不是原子的，是根本原因
+            }
         }
-//        System.out.println("Thread:" + Thread.currentThread().getName() + " Counter:" + COUNTER + " Time:" + System.currentTimeMillis());
+
+        System.out.println("Thread:" + Thread.currentThread().getName() + " Counter:" + COUNTER + " flag:" + FLAG + " Time:" + System.currentTimeMillis());
     }
 }

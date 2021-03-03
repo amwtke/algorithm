@@ -3,9 +3,9 @@ package jvm.mulitcore_mulitthread_programming.java_volitale;
 import java.util.concurrent.TimeUnit;
 
 public class VolatileFlag {
-    static volatile boolean FLAG = true;
-    static volatile long COUNTER = 0L;
-    static int THREADS = 100;
+    static boolean FLAG = true;
+    static long COUNTER = 0L;
+    static int THREADS = 10;
 
     public static void main(String[] args) throws Exception {
         Thread[] threads = new Thread[THREADS];
@@ -15,6 +15,8 @@ public class VolatileFlag {
         }
         TimeUnit.SECONDS.sleep(1L);
         FLAG = false;
+        System.out.println("Counter:" + COUNTER + " FLAG:" + FLAG);
+
         for (int i = 0; i < THREADS; i++) {
             threads[i].join();
         }
@@ -25,6 +27,6 @@ public class VolatileFlag {
         while (FLAG) {
             COUNTER = COUNTER + 1;
         }
-        System.out.println("Thread:" + Thread.currentThread().getName() + " Counter:" + COUNTER + " Time:" + System.currentTimeMillis());
+        System.out.println("Thread:" + Thread.currentThread().getName() + " Counter:" + COUNTER + " FLAG:" + FLAG + " Time:" + System.currentTimeMillis());
     }
 }
