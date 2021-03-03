@@ -3,3 +3,8 @@ java -XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly -Xcomp -XX:CompileCommand
 
 
 -XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly -Xcomp -XX:CompileCommand=compileonly,*VolatileNotOk.setFlag
+
+关闭JIT：
+在启动JVM的时候，只需增加-Xint或者-Djava.compiler=NONE选项即可：
+java -Xint your_main_class_file_name
+java -Djava.compiler=NONE your_main_class_file_name
