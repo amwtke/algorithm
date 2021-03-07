@@ -12,4 +12,11 @@ java -XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly -Xcomp -XX:CompileCommand
 -Xint your_main_class_file_name
 -Djava.compiler=NONE your_main_class_file_name
 
+打印JIT的编译信息
+-XX:+PrintCompilation
 
+
+-XX:+PrintCompilation
+-XX:+UnlockDiagnosticVMOptions
+-XX:+LogCompilation
+-XX:LogFile=/Users/jxiao/Workshop/Temp/jit_log/log
